@@ -1,0 +1,41 @@
+
+.heading {
+    
+    font-family: montserat;
+
+    &-primary {
+        font-size: 64px;
+        line-height: 74px;
+        letter-spacing: 0.04em;
+        color: $color-primary-dark;
+    }
+
+    &-secondary {
+        font-size: 36px;
+        line-height: 46px;  
+        letter-spacing: 0.05em;
+        color: $color-primary-normal;
+
+        
+    }
+
+    &-card {
+        font-family: Gilroy;
+        font-size: 20px;
+        line-height: 30px;
+        letter-spacing: 0.05em;
+        color: $color-primary-dark
+
+    }
+}
+
+.text {
+
+    &__p {
+        font-size: 16px;
+        line-height: 26px;
+        letter-spacing: 0.05em;
+        color: $color-primary-dark;
+        opacity: 0.6;
+    }
+}

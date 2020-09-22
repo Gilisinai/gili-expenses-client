@@ -1,12 +1,12 @@
 import React from 'react';
 import Layout from './core/Layout'
+import HomePage from './components/HomePage'
+import './App.scss';
 
 const App = () => {
   return (
     <Layout>
-      <h1>
-        react
-      </h1>
+      <HomePage/>
     </Layout>
   )
 }

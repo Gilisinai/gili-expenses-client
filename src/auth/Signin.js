@@ -1,15 +1,17 @@
 import React, { useState } from 'react'
-import {  Redirect , Link} from 'react-router-dom'
+import { Redirect, Link } from 'react-router-dom'
 import Layout from '../core/Layout'
 import axios from 'axios'
 import { authenticate, isAuth } from './helpers'
 import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.min.css'
+import login from '../resources/images/login.png'
+
 
 const Signin = ({ history }) => {
     const [values, setValues] = useState({
-        email: '',
-        password: '',
+        email: 'gilisinai2016@gmail.com',
+        password: 'Gilisinai1',
         buttonText: 'Submit'
     })
 
@@ -49,17 +51,17 @@ const Signin = ({ history }) => {
 
     const signinForm = () => (
         <form>
-            <div>
-                <label>Email</label>
-                <input onChange={handleChange('email')} type="email" value={email} />
+            <div className='form__input-wrapper'>
+
+                <input className='form__input' onChange={handleChange('email')} type="email" value={email} placeholder='Email' />
             </div>
-            <div>
-                <label>Password</label>
-                <input onChange={handleChange('password')} type="password" value={password} />
+            <div className='form__input-wrapper'>
+
+                <input className='form__input' onChange={handleChange('password')} type="password" value={password} placeholder='Password' />
             </div>
 
             <div>
-                <button onClick={clickSubmit}>
+                <button className='button button__form' onClick={clickSubmit}>
                     {buttonText}
                 </button>
             </div>
@@ -69,12 +71,25 @@ const Signin = ({ history }) => {
     return (
 
         <Layout>
-            <ToastContainer />
-            {isAuth() ? <Redirect to="/" /> : null}
-            <h1>Signin</h1>
-            {signinForm()}
-            <br/>
-            <Link to="/auth/password/forgot">Forgot Password? </Link>
+            <div className='height__screen flex flex__center flex__col primary-auth'>
+                <div className='container flex flex__center'>
+                    <div className='form__wrapper flex  flex__row-reverse'>
+                        <div>
+
+                            <img className='form__img' src={login} />
+                        </div>
+                        <ToastContainer />
+                        {isAuth() ? <Redirect to="/" /> : null}
+                        <div>
+
+                            <h1 className='form__heading'>Member Login</h1>
+                            {signinForm()}
+                            <br />
+                            <Link className='form__link' to="/auth/password/forgot">Forgot Password? </Link>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </Layout>
     )
 }

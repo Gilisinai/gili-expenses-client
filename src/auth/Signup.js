@@ -1,10 +1,11 @@
 import React, { useState } from 'react'
-import {  Redirect, Link } from 'react-router-dom'
+import { Redirect, Link } from 'react-router-dom'
 import Layout from '../core/Layout'
 import axios from 'axios'
 import { isAuth } from './helpers'
 import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.min.css'
+import login from '../resources/images/login.png'
 
 const Signup = () => {
     const [values, setValues] = useState({
@@ -42,21 +43,21 @@ const Signup = () => {
 
     const signupForm = () => (
         <form>
-            <div>
-                <label>Name</label>
-                <input onChange={handleChange('name')} type="text" value={name} />
+            <div className='form__input-wrapper'>
+
+                <input className='form__input' onChange={handleChange('name')} type="text" value={name} placeholder='Name' />
             </div>
-            <div>
-                <label>Email</label>
-                <input onChange={handleChange('email')} type="email" value={email} />
+            <div className='form__input-wrapper'>
+
+                <input className='form__input' onChange={handleChange('email')} type="email" value={email} placeholder='Email' />
             </div>
-            <div>
-                <label>Password</label>
-                <input onChange={handleChange('password')} type="password" value={password} />
+            <div className='form__input-wrapper'>
+
+                <input className='form__input' onChange={handleChange('password')} type="password" value={password} placeholder='Password' />
             </div>
 
             <div>
-                <button onClick={clickSubmit}>
+                <button className='button button__form' onClick={clickSubmit}>
                     {buttonText}
                 </button>
             </div>
@@ -66,12 +67,28 @@ const Signup = () => {
     return (
 
         <Layout>
-            <ToastContainer />
-            {isAuth() ? <Redirect to="/" /> : null}
-            <h1>Signup</h1>
-            {signupForm()}
-            <br/>
-            <Link to="/signin">already a member? </Link>
+            <div className='height__screen flex flex__center flex__col primary-auth'>
+
+                <div className='container flex flex__center'>
+
+                    <div className='form__wrapper flex'>
+                        <div>
+
+                            <img className='form__img' src={login} />
+                        </div>
+                        <div>
+
+                            <h1 className='form__heading'>Member Signup</h1>
+                            {signupForm()}
+                            <br />
+                            <Link className='form__link' to="/signin">Already a member? </Link>
+                        </div>
+                    </div>
+                </div>
+                <ToastContainer />
+                {isAuth() ? <Redirect to="/" /> : null}
+
+            </div>
         </Layout>
     )
 }

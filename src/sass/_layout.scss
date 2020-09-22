@@ -1,0 +1,49 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 10%;
+    position: fixed;
+    width: 100%;
+    background-color: transparent;
+    z-index: 2;
+    transition: all .3s ease-out;
+    background-color: white;
+    &__active {
+        background-color: white;
+        box-shadow: 0 4px 2px -4px gray;
+    }
+}
+
+.logo {
+    width: 100px;
+    cursor: pointer;
+}
+
+.nav {
+    &__links {
+        list-style: none;
+    }
+
+    &__link {
+        color: $color-primary-light;
+        text-decoration: none;
+        &-active {
+            color: $color-primary-normal;
+        }
+    }
+
+    &__item {
+        display: inline-block;
+        padding: 0px 20px;
+    }
+
+    &__button {
+        padding: 9px 25px;
+        background-color: $color-primary-light;
+        border-radius: 10px;
+        border: none;
+        cursor: pointer;
+    }
+}
+
