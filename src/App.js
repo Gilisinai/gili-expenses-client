@@ -1,12 +1,15 @@
 import React from 'react';
 import Layout from './core/Layout'
+import { isAuth } from '../src/auth/helpers'
+import { Redirect } from 'react-router-dom';
 import HomePage from './components/HomePage'
 import './App.scss';
 
 const App = () => {
   return (
     <Layout>
-      <HomePage/>
+      {isAuth() ? <Redirect to="/private" /> : null}
+      <HomePage />
     </Layout>
   )
 }

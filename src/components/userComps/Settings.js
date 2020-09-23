@@ -1,14 +1,13 @@
 import React, { useState, useEffect } from 'react'
 import { Link, Redirect } from 'react-router-dom'
-import Layout from '../core/Layout'
+import Layout from '../../core/Layout'
 import axios from 'axios'
-import { isAuth, getCookie, signout, updateUser } from '../auth/helpers'
+import { isAuth, getCookie, signout, updateUser } from '../../auth/helpers'
 import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.min.css'
-import Dashboard from '../components/userComps/Dashboard'
-import UserUi from './UserUi'
+import UserUi from '../../core/UserUi'
 
-const Private = ({ history }) => {
+const Settings = ({ history }) => {
     const [values, setValues] = useState({
         role: '',
         name: '',
@@ -18,14 +17,14 @@ const Private = ({ history }) => {
     })
 
     const token = getCookie('token')
-
+    
 
     useEffect(() => {
         loadProfile()
     }, [])
 
     const loadProfile = () => {
-
+        
         axios({
             method: 'GET',
             url: `${process.env.REACT_APP_API}/user/${isAuth()._id}`,
@@ -83,7 +82,7 @@ const Private = ({ history }) => {
         <form>
             <div>
                 <label>Role</label>
-                <input type="text" defaultValue={role} disabled />
+                <input type="text" defaultValue={role} disabled/>
             </div>
             <div>
                 <label>Name</label>
@@ -109,12 +108,12 @@ const Private = ({ history }) => {
     return (
 
         <UserUi>
-           
-           
-            
-
+            <ToastContainer />
+            <h1 className='heading-primary'>Settings</h1>
+            <p>profile update</p>
+            {updateForm()}
         </UserUi>
     )
 }
 
-export default Private
+export default Settings

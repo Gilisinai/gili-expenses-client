@@ -29,7 +29,7 @@ function Header({ children, match, history }) {
 
 
     return (
-        <header className={`header ${navbar ? 'header__active' : ''}`}>
+        <header className={`header ${navbar ? 'header__active' : ''} ${isActive('/private') ? 'static' : ''}`}>
             <img className='logo' src='https://cdn.mos.cms.futurecdn.net/gS5HJ7VtoHAmVhkXYbUZo4-1200-80.jpg'/>
             <nav className='nav'>
                 <ul className="nav__links">
