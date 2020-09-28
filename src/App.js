@@ -8,7 +8,7 @@ import './App.scss';
 const App = () => {
   return (
     <Layout>
-      {isAuth() ? <Redirect to="/private" /> : null}
+      {isAuth() ? <Redirect to="/dashboard" /> : null}
       <HomePage />
     </Layout>
   )

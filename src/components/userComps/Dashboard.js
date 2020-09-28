@@ -10,7 +10,7 @@ import UserInfo from './dashboardComps/UserInfo'
 function Dashboard() {
     return (
         <UserUi>
-            Dashboard
+           
             <div className='dashboard'>
                 <div className='dashboard__card dashboard__card-user--1'>
                     <UserInfo color={'#34B53A'} lightColor={'#E2FBD7'}/>

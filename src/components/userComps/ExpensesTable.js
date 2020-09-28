@@ -5,7 +5,14 @@ import ExpensesRow from './expensesComps/ExpenseRow'
 const ExpensesTable = () => {
     return (
         <UserUi>
-            <div className='dashboard__card'>
+            <div className='dashboard__card dashboard__card-expenses'>
+                <ExpensesRow />
+                <ExpensesRow />
+                <ExpensesRow />
+                <ExpensesRow />
+                <ExpensesRow />
+                <ExpensesRow />
+                <ExpensesRow />
                 <ExpensesRow />
             </div>
         </UserUi>
